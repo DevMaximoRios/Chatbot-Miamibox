@@ -1,0 +1,10 @@
+Elige la opcion que necesites:
+
+1️⃣ - Horario de atención
+2️⃣ - Rastrear pedidos
+​3️⃣​ - Consultar Casillero - Facilidad de pago
+4️⃣​ - Metodos de pagos
+5️⃣ ​- Solicitar a domicilio / Envíos al interior
+6️⃣​ - Cotizar envio Maritimo
+
+0️⃣​ - Salir
