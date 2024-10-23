@@ -136,7 +136,7 @@ const flowMaritimo = addKeyword(EVENTS.ACTION)
            return gotoFlow(flowAgente)
         })       
 
-const flowAgente = addKeyword(['Asesora','asesora','Madera'])
+const flowAgente = addKeyword(['Asesora','asesora','Piramide','piramide','Pirámide','pirámide','eydy','Eydy'])
         .addAnswer('En breve nuestra `Asesora` le atendera.')
         .addAnswer(' Al termina su consulta. Escriba `Salir`',
         {capture : true},
@@ -195,10 +195,19 @@ const flowAgente = addKeyword(['Asesora','asesora','Madera'])
                 .addAnswer("Un placer atenderle 👍🏼.",{
                     delay:200,
                 },)
-    const flowClavesDomicilio = addKeyword(['Entregas','Entrega','entregas','entrega','Domicilio','domicilio','Entregar','entregar'])
+    const flowClavesDomicilio = addKeyword(['Domicilio','domicilio','Entregar','entregar'])
                 .addAnswer("Para completar su petición, te invito al menú escribiendo la palabra *Menú*, opción 5️⃣ . Gracias.",{
                     delay:200,
                 },)
+                
+    const flowEntrega = addKeyword(['Entregado','entregado'])
+                .addAnswer('Si el número de rastreo aparece *ENTREGADO*. No asegura que lo hemos recibido.')
+                .addAnswer('Una vez recibido, aparecerá en el ```ESTATUS``` como *EN BODEGA MIAMI* ')
+                .addAnswer('Te invito a corroborar la información a través de nuestro servicio en la página web')
+                .addAnswer('https://www.miamiboxpanama.com/rastreador-tracking/')
+                .addAnswer("Puedes volver al menú escribiendo la palabra *Menú*. Gracias.",{
+                    delay:200,
+                },)            
 
     const flowImagen  = addKeyword(EVENTS.MEDIA)
         .addAnswer( async(ctx, ctxFn, {flowDynamic})=>{
@@ -269,7 +278,7 @@ const flowAgente = addKeyword(['Asesora','asesora','Madera'])
 
 const main = async () => {
     const adapterDB = new MockAdapter()
-    const adapterFlow = createFlow([,flowClaves,flowPrincipal,flowWelcome, flowRastreo, flowCasillero, flowPagos ,flowYappy, flowbanco,flowDomicilios,menuFlow,flowHorario,ayudaFlow, flowAgente, flowMaritimo,flowClavesDomicilio,flowImagen])
+    const adapterFlow = createFlow([,flowClaves,flowPrincipal,flowWelcome, flowRastreo, flowCasillero, flowPagos ,flowYappy, flowbanco,flowDomicilios,menuFlow,flowHorario,ayudaFlow, flowAgente, flowMaritimo,flowClavesDomicilio,flowImagen,flowEntrega])
     const adapterProvider = createProvider(BaileysProvider)
 
     createBot({
